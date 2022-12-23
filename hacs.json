@@ -1,0 +1,12 @@
+{
+    "name": "AudioControl Director M6400/M6800",
+    "render_readme": true,
+    "content_in_root": true,
+    "country": [
+        "US"
+    ],
+    "domains": [
+        "media_player"
+    ],
+    "hide_default_branch": true
+}
