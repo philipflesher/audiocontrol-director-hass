@@ -1,0 +1,37 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Device is already configured",
+            "unknown": "Unexpected error"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect to provided hostname",
+            "invalid_host": "Invalid hostname",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "init": {
+                "title": "Add AudioControl Director M6400/M6800",
+                "description": "Connect to a Director by entering the hostname or IP address of its telnet interface.",
+                "data": {
+                    "host": "Host"
+                },
+                "data_description": {
+                    "host": "hostname or IP address of telnet interface"
+                }
+            },
+            "identifiers": {
+                "title": "Set identifiers for AudioControl Director M6400/6800",
+                "description": "Set the name and unique ID for this Director",
+                "data": {
+                    "unique_id": "Unique ID",
+                    "name": "Name"
+                },
+                "data_description": {
+                    "unique_id": "user-specified unique ID for the device; must be globally unique",
+                    "name": "name of the device"
+                }
+            }
+        }
+    }
+}

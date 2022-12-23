@@ -1,0 +1,12 @@
+{
+    "domain": "audiocontrol_director",
+    "name": "AudioControl Director M6400/M6800",
+    "dependencies": [],
+    "after_dependencies": [],
+    "requirements": [
+        "audiocontrol-director-telnet @ git+https://github.com/philipflesher/audiocontrol-director-telnet-py@main"
+    ],
+    "iot_class": "local_polling",
+    "version": "0.1.0",
+    "config_flow": true
+}
