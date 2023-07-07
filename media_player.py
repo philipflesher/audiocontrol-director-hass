@@ -20,7 +20,6 @@ from homeassistant.core import callback, HomeAssistant
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.helpers.reload import async_setup_reload_service
 from homeassistant.helpers.typing import ConfigType
 from homeassistant.helpers.update_coordinator import (
     CoordinatorEntity,
@@ -43,19 +42,17 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 async def async_setup_entry(
     hass: HomeAssistant,
     config: ConfigType,
-    async_add_entities: AddEntitiesCallback,
+    add_entities: AddEntitiesCallback,
 ) -> None:
     """Setup config entry"""
-    await async_setup_reload_service(hass, DOMAIN, PLATFORMS)
-
     coordinator = AudioControlDirectorCoordinator(hass, config)
 
     await coordinator.async_config_entry_first_refresh()
 
     system_status = coordinator.data["system_status"]
     if system_status is not None:
-        async_add_entities([DirectorDevice(coordinator)])
-        async_add_entities(
+        add_entities([DirectorDevice(coordinator)])
+        add_entities(
             OutputDevice(coordinator, output_id)
             for output_id, output in system_status.outputs.items()
         )
