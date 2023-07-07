@@ -65,7 +65,7 @@ class AudioControlDirectorTelnetError(Exception):
 class AudioControlDirectorCoordinator(DataUpdateCoordinator):
     """AudioControl Director M6400/M6800 data update coordinator."""
 
-    def __init__(self, hass, config):
+    def __init__(self, hass: HomeAssistant, config: ConfigType) -> None:
         """Initialize coordinator."""
         super().__init__(
             hass,
@@ -133,7 +133,7 @@ class AudioControlDirectorCoordinator(DataUpdateCoordinator):
 class DirectorDevice(CoordinatorEntity, MediaPlayerEntity):
     """AudioControl Director M6400/M6800 device."""
 
-    def __init__(self, coordinator):
+    def __init__(self, coordinator: AudioControlDirectorCoordinator) -> None:
         """Initialize."""
         super().__init__(coordinator)
 
@@ -180,7 +180,9 @@ class OutputDevice(CoordinatorEntity, MediaPlayerEntity):
     _input_id_to_input_name = dict(map(lambda i: (i, i.name), _available_inputs))
     _input_name_to_input_id = {v: k for k, v in _input_id_to_input_name.items()}
 
-    def __init__(self, coordinator, output_id):
+    def __init__(
+        self, coordinator: AudioControlDirectorCoordinator, output_id: OutputID
+    ) -> None:
         """Pass coordinator to CoordinatorEntity."""
         super().__init__(coordinator)
 
